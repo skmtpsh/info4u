@@ -23,7 +23,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['element-ui/lib/theme-chalk/index.css'],
+  css: ['element-ui/lib/theme-chalk/index.css', '~/assets/css/style.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -41,6 +41,22 @@ module.exports = {
   modules: [
     '@nuxtjs/axios'
   ],
+
+  axios: {
+    proxy: true,
+    // prefix: '/api', // baseURL
+    credentials: true,
+  },
+
+  // proxy: {
+  //   '/api/': {
+  //     target: 'https://cnodejs.org/api/v1', // 代理地址
+  //     changeOrigin: true,
+  //     pathRewrite: {
+  //       '^/api': ''
+  //     },
+  //   },
+  // },
   /*
    ** Build configuration
    */

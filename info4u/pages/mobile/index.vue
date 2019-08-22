@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <nav class="nav">2</nav>
+  <div>
+2
   </div>
 </template>
 
@@ -15,7 +15,3 @@ export default {
 }
 </script>
 
-<style>
-.container {
-}
-</style>
