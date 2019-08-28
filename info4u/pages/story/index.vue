@@ -1,8 +1,8 @@
 <template>
   <div class="news">
-    <h2>新闻列表</h2>
+    <h2>小说列表</h2>
     <ul>
-      <nuxt-link v-for="(item, index) in list" :key="index" :to="'/news/' + item.id" tag="li" ><a>{{item.title}}</a></nuxt-link>
+      <nuxt-link v-for="(item, index) in list" :key="index" :to="'/story/' + item.id" tag="li" ><a>{{item.title}}</a></nuxt-link>
     </ul>
     <!-- <nuxt-link :to="{path: '/'}">首页</nuxt-link> -->
   </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'NewsPage',
+  name: 'StoryPage',
   data() {
     return {
       list: []
@@ -18,7 +18,7 @@ export default {
   },
   head() {
     return {
-      title: '爱看新闻'
+      title: '爱看小说'
     }
   },
   middleware: 'userAuth',

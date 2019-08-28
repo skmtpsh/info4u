@@ -1,6 +1,6 @@
 <template lang="html">
   <div v-if="loading" class="loading-page">
-    <p>Loading...</p>
+    <i class="el-icon-loading"></i>
   </div>
 </template>
 

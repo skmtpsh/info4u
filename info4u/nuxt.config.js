@@ -1,3 +1,7 @@
+
+const pkg = require('./package')
+const { resolve } = require('path')
+
 module.exports = {
   mode: 'universal',
   /*
@@ -11,7 +15,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: pkg.description
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
@@ -27,7 +31,10 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/element-ui'],
+  plugins: [
+    '@/plugins/svg-icon',
+    '@/plugins/element-ui'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -64,7 +71,20 @@ module.exports = {
     transpile: [/^element-ui/],
     /*
      ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
+    */
+    extend(config, ctx) {
+      const svgRule = config.module.rules.find(rule => rule.test.test('.svg'))
+      svgRule.exclude = [resolve(__dirname, 'assets/svg')]
+
+      // Includes /assets/svg for svg-sprite-loader
+      config.module.rules.push({
+        test: /\.svg$/,
+        include: [resolve(__dirname, 'assets/svg')],
+        loader: 'svg-sprite-loader',
+        options: {
+          symbolId: 'icon-[name]'
+        }
+      })
+    }
   }
 }
