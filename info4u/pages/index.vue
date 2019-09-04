@@ -18,6 +18,49 @@
                 </div>
               </li>
             </ul>
+            <!-- <h3>本期主打</h3> -->
+            <ul class="aui-book-list">
+              <li class="aui-flex">
+                <div class="aui-book-img">
+                  <img :src="require('@/assets/img/book1.png')" />
+                </div>
+                <div class="aui-flex-box">
+                  <h2>文化苦旅 <em>9.9分</em></h2>
+                  <p>《文化苦旅》是于秋生的第一个散文集所有的作品主要包括了俩部分一部分是历史文学</p>
+                  <h3><i>于秋生著</i> <em>加入书架</em></h3>
+                </div>
+              </li>
+              <li class="aui-flex">
+                <div class="aui-book-img">
+                  <img :src="require('@/assets/img/book2.png')" />
+                </div>
+                <div class="aui-flex-box">
+                  <h2>我在云上爱你 <em>9.9分</em></h2>
+                  <p>《文化苦旅》是于秋生的第一个散文集所有的作品主要包括了俩部分一部分是历史文学</p>
+                  <h3><i>于秋生著</i> <em>加入书架</em></h3>
+                </div>
+              </li>
+              <li class="aui-flex">
+                <div class="aui-book-img">
+                  <img :src="require('@/assets/img/book3.png')" />
+                </div>
+                <div class="aui-flex-box">
+                  <h2>我在云上爱你 <em>9.9分</em></h2>
+                  <p>《文化苦旅》是于秋生的第一个散文集所有的作品主要包括了俩部分一部分是历史文学</p>
+                  <h3><i>于秋生著</i> <em>加入书架</em></h3>
+                </div>
+              </li>
+              <li class="aui-flex">
+                <div class="aui-book-img">
+                  <img :src="require('@/assets/img/book4.png')" />
+                </div>
+                <div class="aui-flex-box">
+                  <h2>我在云上爱你 <em>9.9分</em></h2>
+                  <p>《文化苦旅》是于秋生的第一个散文集所有的作品主要包括了俩部分一部分是历史文学</p>
+                  <h3><i>于秋生著</i> <em>加入书架</em></h3>
+                </div>
+              </li>
+            </ul>
           </el-tab-pane>
           <el-tab-pane label="今日" name="second">配置管理</el-tab-pane>
           <el-tab-pane label="排行" name="third">角色管理</el-tab-pane>

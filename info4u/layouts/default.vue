@@ -3,7 +3,7 @@
     <nav class="nav">
       <header class="Header_container">
         <div class="Header_nav_lf">
-          <a href="#"><b style="font-size:18px;">某刻</b></a>
+          <a href="#"><b style="font-size:18px;">M 某刻</b></a>
         </div>
         <div class="Header_nav_lf">
           <nuxt-link :to="{path: '/', params: {}}">首页</nuxt-link>

@@ -1,20 +1,24 @@
 <template>
-  <div class="news-detail">
-    <h2>新闻详细页</h2>
-    <!-- <div v-html="detail"></div> -->
-    <div v-text="detail"></div>
+  <div class="container">
+    <el-row :gutter="40">
+      <el-col :span="16">
+        <h2>{{detail.title}}</h2>
+        <p>{{detail.summary}}</p>
+        <p><el-tag v-for="tag in detail.tags" :key="tag">{{tag}}</el-tag></p>
+      </el-col>
+    </el-row>
   </div>
 </template>
 <script>
   export default {
-    validate({ params, query }) {
-      return /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]+$/.test(params.id) // must be number
-    },
+    // validate({ params, query }) {
+    //   return /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]+$/.test(params.id) // must be number
+    // },
     async asyncData (context) {
       const { app, params } = context
-      const res = await app.$axios.get(`https://cnodejs.org/api/v1/topic/${params.id}`);
+      const res = await app.$axios.get(`/api/movie/subject/${params.id}?apikey=0df993c66c0c636e29ecbb5344252a4a`);
       return {
-        detail: res.data.data.content + '<img src="1" onerror=alert(document.cookie)>'
+        detail: res.data
       }
     }
     // created () {

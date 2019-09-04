@@ -12,6 +12,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'referrer', content: 'no-referrer' },
       {
         hid: 'description',
         name: 'description',
@@ -33,7 +34,8 @@ module.exports = {
    */
   plugins: [
     '@/plugins/svg-icon',
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/scroll'
   ],
   /*
    ** Nuxt.js dev-modules
@@ -55,15 +57,15 @@ module.exports = {
     credentials: true,
   },
 
-  // proxy: {
-  //   '/api/': {
-  //     target: 'https://cnodejs.org/api/v1', // 代理地址
-  //     changeOrigin: true,
-  //     pathRewrite: {
-  //       '^/api': ''
-  //     },
-  //   },
-  // },
+  proxy: {
+    '/api/': {
+      target: 'http://api.douban.com/v2', // 代理地址
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': ''
+      },
+    },
+  },
   /*
    ** Build configuration
    */

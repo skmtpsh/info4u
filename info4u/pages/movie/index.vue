@@ -1,16 +1,85 @@
 <template>
-  <div class="news">
-    <h2>电影列表</h2>
-    <ul>
-      <nuxt-link v-for="(item, index) in list" :key="index" :to="'/movie/' + item.id" tag="li" ><a>{{item.title}}</a></nuxt-link>
-    </ul>
-    <!-- <nuxt-link :to="{path: '/'}">首页</nuxt-link> -->
+  <div class="container">
+    <el-row :gutter="40">
+      <el-col :span="16">
+        <h2>电影列表</h2>
+        <!-- <ul class="aui-book-list">
+          <nuxt-link v-for="(item, index) in list" :key="index" :to="'/movie/' + item.id" tag="li" class="aui-flex">
+            <div class="aui-book-img">
+              <img :src="item.images.medium" style="display: block;" />
+            </div>
+            <div class="aui-flex-box">
+              <h2>{{item.title}} <em>{{item.rating.average}}分</em></h2>
+              <p>{{item.title}}</p>
+              <h3><i>于秋生著</i> <em>加入书架</em></h3>
+            </div>
+          </nuxt-link>
+        </ul> -->
+        <!-- <Scroll></Scroll> -->
+      </el-col>
+      <el-col :span="8">
+        <div class="advise">
+          <img :src="require('@/assets/img/bn3.jpg')" />
+        </div>
+        <div class="mod2">
+          <h3>今日更新</h3>
+          <ul class="mod_list">
+            <li>
+                <a href="#" target="_blank">
+                  <i>1</i>
+                  <strong>蛋卷基金</strong>
+                  <span>万2.5低佣<i class="iconfont"></i></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <i>2</i>
+                  <strong>A股开户</strong><span>万2.5低佣<i class="iconfont"></i></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <i>3</i>
+                  <strong>蛋卷基金</strong><span>万2.5低佣<i class="iconfont"></i></span>
+                </a>
+              </li>
+          </ul>
+        </div>
+        <div class="mod">
+          <h3>热门排行</h3>
+          <ul>
+            <li><a href="#" target="_blank">中国金茂：获准发行20亿元公司债券 票面利率3.65%</a></li>
+            <li><a href="#" target="_blank">Costco大陆首店开业，卖16万张会员卡，美方管理人员笑了</a></li>
+            <li><a href="#" target="_blank">结账2小时、中途暂停营业，上海Costco开业首日的体验很崩溃</a></li>
+            <li><a href="#" target="_blank">《美国工厂》火了！奥巴马为什么盯上了曹德旺？</a></li>
+            <li><a href="#" target="_blank">因长沙市一小区业主业主反对建基站 三大运营商将断电拆除</a></li>
+            <li><a href="#" target="_blank">Costco上海被挤爆！会员卡卖出16万张，玩了43年“新零售”，它是如何做到的？</a></li>
+            <li><a href="#" target="_blank">以色列空袭邻国，中东三国誓言报复</a></li>
+            <li><a href="#" target="_blank">Costco刷屏中国！上午开业下午停业：10万爱马仕秒光，更别提茅台、五粮液</a></li>
+          </ul>
+        </div>
+        <div class="mod">
+          <h3>最新新闻</h3>
+          <ul>
+            <li><a href="#" target="_blank">中国金茂：获准发行20亿元公司债券 票面利率3.65%</a></li>
+            <li><a href="#" target="_blank">Costco大陆首店开业，卖16万张会员卡，美方管理人员笑了</a></li>
+            <li><a href="#" target="_blank">结账2小时、中途暂停营业，上海Costco开业首日的体验很崩溃</a></li>
+            <li><a href="#" target="_blank">《美国工厂》火了！奥巴马为什么盯上了曹德旺？</a></li>
+            <li><a href="#" target="_blank">因长沙市一小区业主业主反对建基站 三大运营商将断电拆除</a></li>
+            <li><a href="#" target="_blank">Costco上海被挤爆！会员卡卖出16万张，玩了43年“新零售”，它是如何做到的？</a></li>
+            <li><a href="#" target="_blank">以色列空袭邻国，中东三国誓言报复</a></li>
+            <li><a href="#" target="_blank">Costco刷屏中国！上午开业下午停业：10万爱马仕秒光，更别提茅台、五粮液</a></li>
+          </ul>
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
 export default {
   name: 'MoviePage',
+
   data() {
     return {
       list: []
@@ -38,8 +107,9 @@ export default {
   },
   methods: {
     async fetchList () {
-      const res = await this.$axios.$get('https://cnodejs.org/api/v1/topics')
-      this.list = res.data
+      const res = await this.$axios.$get('/api/movie/in_theaters?apikey=0df993c66c0c636e29ecbb5344252a4a&start=0&count=10')
+      // console.log(res)
+      this.list = res.subjects
     }
   }
 }

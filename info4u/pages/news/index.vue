@@ -2,7 +2,7 @@
   <div class="news">
     <h2>新闻列表</h2>
     <ul>
-      <nuxt-link v-for="(item, index) in list" :key="index" :to="'/news/' + item.id" tag="li" ><a>{{item.title}}</a></nuxt-link>
+      <nuxt-link v-for="(item, index) in list" :key="index" :to="'/news/' + item.id" tag="li" >{{item.title}}</nuxt-link>
     </ul>
     <!-- <nuxt-link :to="{path: '/'}">首页</nuxt-link> -->
   </div>
@@ -18,7 +18,7 @@ export default {
   },
   head() {
     return {
-      title: '爱看新闻'
+      title: '新闻列表'
     }
   },
   middleware: 'userAuth',
