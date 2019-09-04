@@ -2,6 +2,7 @@
   <div class="container">
     <el-row :gutter="40">
       <el-col :span="16">
+        分支
         <h2>{{detail.title}}</h2>
         <p>{{detail.summary}}</p>
         <p><el-tag v-for="tag in detail.tags" :key="tag">{{tag}}</el-tag></p>
